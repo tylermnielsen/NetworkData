@@ -7,15 +7,17 @@ import argparse
 parser = argparse.ArgumentParser(
     prog="Check Internet Speed Utility",
     description="Check internet speed and log results to a CSV file.",
-    epilog="Example usage: python checkSpeed.py data/cisu_output.csv",
+    epilog="Example usage: python checkSpeed.py cisu_output.csv",
 )
 
 parser.add_argument(
     "filePath",
     nargs="?",
-    default=os.path.join("data", "cisu_output.csv"),
-    help="Path to the output CSV file (default: data/cisu_output.csv)",
+    default="cisu_output.csv",
+    help="Path to the output CSV file (default: cisu_output.csv)",
 )
+
+filePath = parser.parse_args().filePath
 
 print(datetime.datetime.now().strftime("%H:%M:%S") + " starting... ")
 
